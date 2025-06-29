@@ -8,7 +8,7 @@ Una aplicación web moderna para explorar y descubrir Pokémon, construida con R
 
 ## 🚀 Demo en Vivo
 
-[Ver Demo](https://tu-usuario.github.io/pokemon-explorer/)
+[Ver Demo](https://JuanSierra16.github.io/pokemon-explorer/)
 
 ## ✨ Características
 
@@ -120,8 +120,8 @@ Este proyecto está bajo la licencia MIT. Ver el archivo `LICENSE` para más det
 ## 👨‍💻 Autor
 
 **Juan Jose Sierra Arroyave**
-- GitHub: [@tu-usuario](https://github.com/tu-usuario)
-- LinkedIn: [tu-perfil](https://linkedin.com/in/tu-perfil)
+- GitHub: [@JuanSierra16](https://github.com/JuanSierra16)
+- LinkedIn: [Juan José Sierra](https://www.linkedin.com/in/juan-jose-sierra-dev/)
 
 ## 🙏 Agradecimientos
 
@@ -132,22 +132,3 @@ Este proyecto está bajo la licencia MIT. Ver el archivo `LICENSE` para más det
 ---
 
 ⭐ Si te gusta este proyecto, ¡dale una estrella en GitHub!
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
