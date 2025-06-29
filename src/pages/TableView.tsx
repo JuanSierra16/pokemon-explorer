@@ -1,33 +1,33 @@
 import DataTable, { type TableColumn } from "react-data-table-component";
 import type { Pokemon } from "../types/pokemon";
 import PokemonModal from "../components/PokemonModal";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-// Tema personalizado para DataTable en modo oscuro
+// Tema oscuro fijo para DataTable
 const customStyles = {
   rows: {
     style: {
-      backgroundColor: 'var(--table-row-bg)',
-      color: 'var(--table-text-color)',
+      backgroundColor: '#334155',
+      color: '#f1f5f9',
       '&:nth-of-type(odd)': {
-        backgroundColor: 'var(--table-row-odd-bg)',
+        backgroundColor: '#475569',
       },
       '&:hover': {
-        backgroundColor: 'var(--table-row-hover-bg)',
+        backgroundColor: '#64748b',
       },
     },
   },
   headCells: {
     style: {
-      backgroundColor: 'var(--table-header-bg)',
-      color: 'var(--table-header-text)',
+      backgroundColor: '#1e293b',
+      color: '#f1f5f9',
       fontWeight: 'bold',
     },
   },
   pagination: {
     style: {
-      backgroundColor: 'var(--table-pagination-bg)',
-      color: 'var(--table-pagination-text)',
+      backgroundColor: '#334155',
+      color: '#f1f5f9',
     },
   },
 };
@@ -39,49 +39,6 @@ interface TableViewProps {
 export default function TableView({ data }: TableViewProps) {
   const [selectedType, setSelectedType] = useState<string>("");
   const [selected, setSelected] = useState<Pokemon | null>(null);
-  const [isDark, setIsDark] = useState<boolean>(false);
-
-  // Detectar modo oscuro
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-    
-    checkDarkMode();
-    
-    // Observar cambios en la clase dark
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, { 
-      attributes: true, 
-      attributeFilter: ['class'] 
-    });
-    
-    return () => observer.disconnect();
-  }, []);
-
-  // Establecer variables CSS para el tema
-  useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.style.setProperty('--table-row-bg', '#1f2937');
-      root.style.setProperty('--table-row-odd-bg', '#374151');
-      root.style.setProperty('--table-row-hover-bg', '#4b5563');
-      root.style.setProperty('--table-header-bg', '#111827');
-      root.style.setProperty('--table-header-text', '#f9fafb');
-      root.style.setProperty('--table-text-color', '#f9fafb');
-      root.style.setProperty('--table-pagination-bg', '#1f2937');
-      root.style.setProperty('--table-pagination-text', '#f9fafb');
-    } else {
-      root.style.setProperty('--table-row-bg', '#ffffff');
-      root.style.setProperty('--table-row-odd-bg', '#f9fafb');
-      root.style.setProperty('--table-row-hover-bg', '#f3f4f6');
-      root.style.setProperty('--table-header-bg', '#f9fafb');
-      root.style.setProperty('--table-header-text', '#1f2937');
-      root.style.setProperty('--table-text-color', '#1f2937');
-      root.style.setProperty('--table-pagination-bg', '#ffffff');
-      root.style.setProperty('--table-pagination-text', '#1f2937');
-    }
-  }, [isDark]);
 
   const allTypes = Array.from(
     new Set(data.flatMap((p) => p.types.map((t) => t.type.name)))
@@ -174,9 +131,9 @@ export default function TableView({ data }: TableViewProps) {
   return (
     <div>
       <div className="mb-4">
-        <label className="font-semibold mr-2">Filtrar por tipo:</label>
+        <label className="font-semibold mr-2 text-white">Filtrar por tipo:</label>
         <select
-          className="border p-2 rounded bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 transition-colors"
+          className="border border-slate-600 p-2 rounded bg-slate-800 text-gray-100 transition-colors"
           value={selectedType}
           onChange={(e) => setSelectedType(e.target.value)}
         >
@@ -189,19 +146,20 @@ export default function TableView({ data }: TableViewProps) {
         </select>
       </div>
 
-      <DataTable
-        columns={columns}
-        data={filteredData}
-        pagination
-        paginationPerPage={10}
-        highlightOnHover
-        responsive
-        dense
-        customStyles={customStyles}
-      />
+      <div className="bg-slate-800 rounded-lg shadow-lg border border-slate-600 overflow-hidden">
+        <DataTable
+          columns={columns}
+          data={filteredData}
+          pagination
+          paginationPerPage={10}
+          highlightOnHover
+          responsive
+          dense
+          customStyles={customStyles}
+        />
+      </div>
 
       <PokemonModal pokemon={selected} onClose={() => setSelected(null)} />
-
     </div>
   );
 }
