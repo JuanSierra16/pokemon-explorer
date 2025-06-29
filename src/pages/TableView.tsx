@@ -117,7 +117,7 @@ export default function TableView({ data }: TableViewProps) {
       cell: (row) => (
           <button
             onClick={() => setSelected(row)}
-            className="px-2 py-1 bg-blue-500 text-white rounded text-xs"
+            className="px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-medium hover:bg-blue-500 hover:scale-105 hover:shadow-lg transition-all duration-200 active:scale-95 border border-blue-500 hover:border-blue-400 cursor-pointer"
           >
             Ver detalles
           </button>
@@ -131,9 +131,9 @@ export default function TableView({ data }: TableViewProps) {
   return (
     <div>
       <div className="mb-4">
-        <label className="font-semibold mr-2 text-white">Filtrar por tipo:</label>
+        <label className="font-semibold mr-3 text-white">Filtrar por tipo:</label>
         <select
-          className="border border-slate-600 p-2 rounded bg-slate-800 text-gray-100 transition-colors"
+          className="border-2 border-slate-600 p-2.5 rounded-xl bg-slate-800 text-gray-100 transition-all duration-300 hover:border-slate-500 focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 focus:shadow-lg min-w-32 cursor-pointer"
           value={selectedType}
           onChange={(e) => setSelectedType(e.target.value)}
         >

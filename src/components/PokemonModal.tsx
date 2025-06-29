@@ -19,7 +19,7 @@ export default function PokemonModal({ pokemon, onClose }: Props) {
       >
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 rounded-full transition-colors"
+          className="absolute top-3 right-3 w-9 h-9 flex items-center justify-center text-slate-400 hover:text-white hover:bg-red-600 rounded-full transition-all duration-300 hover:scale-110 hover:rotate-90 active:scale-95 font-bold cursor-pointer"
         >
           ✖
         </button>
@@ -27,7 +27,7 @@ export default function PokemonModal({ pokemon, onClose }: Props) {
           <img
             src={pokemon.sprites.front_default}
             alt={pokemon.name}
-            className="mx-auto w-28 h-28 drop-shadow-lg"
+            className="mx-auto w-28 h-28 drop-shadow-2xl hover:scale-110 transition-transform duration-300"
           />
           <h2 className="text-2xl font-bold capitalize mt-3 text-white">
             {pokemon.name}
@@ -47,13 +47,13 @@ export default function PokemonModal({ pokemon, onClose }: Props) {
           </div>
 
           <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
-            <div className="bg-slate-700 rounded-lg p-3">
+            <div className="bg-slate-700 rounded-lg p-3 hover:bg-slate-600 transition-colors duration-300 hover:shadow-lg">
               <p className="font-medium text-slate-300">Altura</p>
               <p className="text-lg font-bold text-white">
                 {pokemon.height / 10} m
               </p>
             </div>
-            <div className="bg-slate-700 rounded-lg p-3">
+            <div className="bg-slate-700 rounded-lg p-3 hover:bg-slate-600 transition-colors duration-300 hover:shadow-lg">
               <p className="font-medium text-slate-300">Peso</p>
               <p className="text-lg font-bold text-white">
                 {pokemon.weight / 10} kg
@@ -77,7 +77,7 @@ export default function PokemonModal({ pokemon, onClose }: Props) {
               return (
                 <div
                   key={stat.stat.name}
-                  className={`rounded-lg p-2 font-semibold text-center transition-colors ${colorClasses}`}
+                  className={`rounded-lg p-2 font-semibold text-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-default ${colorClasses}`}
                 >
                   <div className="text-xs opacity-75 mb-1">
                     {stat.stat.name.replace('-', ' ').toUpperCase()}

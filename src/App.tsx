@@ -30,23 +30,23 @@ function App() {
         </div>
 
         <div className="mb-6 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             <button
               onClick={() => setView("table")}
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+              className={`px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 transform border-2 cursor-pointer ${
                 view === "table"
-                  ? "bg-blue-600 text-white shadow-md"
-                  : "bg-slate-700 text-blue-300 hover:bg-slate-600"
+                  ? "bg-blue-600 text-white shadow-xl scale-105 border-blue-500 shadow-blue-500/30"
+                  : "bg-slate-700 text-blue-300 border-slate-600 hover:bg-blue-600 hover:text-white hover:shadow-xl hover:scale-110 hover:-translate-y-1 hover:border-blue-400 hover:shadow-blue-500/50 active:scale-95"
               }`}
             >
               📊 Tabla
             </button>
             <button
               onClick={() => setView("grid")}
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+              className={`px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 transform border-2 cursor-pointer ${
                 view === "grid"
-                  ? "bg-green-600 text-white shadow-md"
-                  : "bg-slate-700 text-green-300 hover:bg-slate-600"
+                  ? "bg-green-600 text-white shadow-xl scale-105 border-green-500 shadow-green-500/30"
+                  : "bg-slate-700 text-green-300 border-slate-600 hover:bg-green-600 hover:text-white hover:shadow-xl hover:scale-110 hover:-translate-y-1 hover:border-green-400 hover:shadow-green-500/50 active:scale-95"
               }`}
             >
               🎯 Cuadrícula
@@ -58,7 +58,7 @@ function App() {
             placeholder="🔍 Buscar pokémon..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="px-4 py-2 border border-slate-600 rounded-lg w-full max-w-sm bg-slate-800 text-gray-100 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+            className="px-4 py-2.5 border-2 border-slate-600 rounded-xl w-full max-w-sm bg-slate-800 text-gray-100 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-400 hover:border-slate-500 transition-all duration-300 focus:shadow-lg focus:shadow-blue-500/20"
           />
         </div>
 
