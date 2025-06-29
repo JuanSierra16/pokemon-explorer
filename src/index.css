@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* Estilos base */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Modo claro (por defecto) */
+html {
+  background-color: white;
+  color: #1f2937;
+}
+
+/* Modo oscuro */
+html.dark {
+  background-color: #111827;
+  color: #f9fafb;
+}
